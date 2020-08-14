@@ -29,7 +29,7 @@ zlim([-5 5])
 title('Rotating sequence Z-X-Y around moving frame')
 
 
-pause(10)
+pause(8)
 disp('Rotating around Z axis')
 
 R_X = [1 0 0; 0 cosd(alp) -sind(alp); 0 sind(alp) cosd(alp)];
@@ -51,7 +51,7 @@ for i = 1:3
         disp('Rotating around x Axis')
         title('Rotated around Z axis by 90 degrees')
         disp(z)
-        pause(10)
+        pause(8)
     end
     if i == 2
         z = R_X * z;
@@ -66,7 +66,7 @@ for i = 1:3
         disp('Rotating around Y Axis')
         title('Rotated around X axis by 90 degrees')
         disp(z)
-        pause(10)
+        pause(8)
     end
     if i == 3
         z = R_Y * z;

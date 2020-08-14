@@ -1,0 +1,1 @@
+A simple code to understand Rotation matrix and Euler angles. The code rotates the frame around Z-Axis by 90 degrees, then around the newly displaced X-Axis by 90 degrees and finally arund the newly displaced Y-Axis by 90 degrees. This sequence is the ISB standard for computating forearm pronation and supination.
