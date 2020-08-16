@@ -28,19 +28,17 @@ zlim([-5 5])
 vec12 = point2 - point1;
 vec12_p = [point1; point1+vec12];
 vec12_UV = vec12./vecnorm(vec12')';
-plot3(vec12_p(:,1),vec12_p(:,2),vec12_p(:,3),'c', 'LineWidth',0.5);
+plot3(vec12_p(:,1),vec12_p(:,2),vec12_p(:,3),'r', 'LineWidth',0.5);
 
 % Creating vector between points 1 and 3
 vec13 = point3 - point1;
 vec13_p = [point1; point1+vec13];
 vec13_UV = vec13./vecnorm(vec13')';
-plot3(vec13_p(:,1),vec13_p(:,2),vec13_p(:,3),'c', 'LineWidth',0.5);
+plot3(vec13_p(:,1),vec13_p(:,2),vec13_p(:,3),'r', 'LineWidth',0.5);
 
 % Creating vector between points 2 and 3
-vec23 = point3 - point2;
-vec23_p = [point2; point2+vec23];
-vec23_UV = vec23./vecnorm(vec23')';
-plot3(vec23_p(:,1),vec23_p(:,2),vec23_p(:,3),'c', 'LineWidth',0.5);
-
-
+vec23 = point3 - point1;
+vec23_p = [point2; point1+vec23];
+vec23_UV = vec13./vecnorm(vec23')';
+plot3(vec23_p(:,1),vec23_p(:,2),vec23_p(:,3),'r', 'LineWidth',0.5);
 
