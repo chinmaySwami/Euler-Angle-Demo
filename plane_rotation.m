@@ -24,6 +24,7 @@ zlim([-5 5])
 
 % orienting the point 4 in same plane as other 3 points
 
+% Plane 1 = 1,2,3
 % Creating vector between points 1 and 2
 vec12 = point2 - point1;
 vec12_p = [point1; point1+vec12];
@@ -42,5 +43,37 @@ vec23_p = [point2; point2+vec23];
 vec23_UV = vec23./vecnorm(vec23')';
 plot3(vec23_p(:,1),vec23_p(:,2),vec23_p(:,3),'c', 'LineWidth',0.5);
 
+
+% Plane 12 = 1,2,4
+
+% Creating vector between points 1 and 4
+vec14 = point4 - point1;
+vec14_p = [point1; point1+vec14];
+vec14_UV = vec14./vecnorm(vec14')';
+plot3(vec14_p(:,1),vec14_p(:,2),vec14_p(:,3),'m', 'LineWidth',0.5);
+
+% computing new axis
+ih2 = vec12_UV .* vec14_UV
+
+% Creating vector between points 2 and 4
+vec24 = point4 - point2;
+vec24_p = [point2; point2+vec24];
+vec24_UV = vec24./vecnorm(vec24')';
+plot3(vec24_p(:,1),vec24_p(:,2),vec24_p(:,3),'m', 'LineWidth',0.5);
+
+title('Rotating plane[magenta] to align with[cyan]')
+pause(5)
+
+% Computeing the required anglew of rotation 
+theta = dot(ih2,vec12_UV);
+theta = radtodeg(theta);
+
+R_X = [1 0 0; 0 cosd(theta) -sind(theta); 0 sind(theta) cosd(theta)];
+R_Y = [cosd(theta) 0 sind(theta) ; 0 1 0; -sind(theta) 0 cosd(theta)];
+R_Z = [cosd(theta) -sind(theta) 0; sind(theta) cosd(theta) 0; 0 0 1];
+
+point4_n = R_X .*[1 2.5 1.5]';
+
+plot3(point4_n(1),point4_n(2),point4_n(3),'ob');
 
 
