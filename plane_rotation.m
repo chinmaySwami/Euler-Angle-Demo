@@ -53,10 +53,16 @@ vec14_UV = vec14./vecnorm(vec14);
 plot3(vec14_p(:,1),vec14_p(:,2),vec14_p(:,3),'m', 'LineWidth',0.5);
 
 % computing new axis
-ih2 = cross(vec12_UV, vec14_UV)
+ih2 = cross(vec12_UV, vec14_UV);
 ih2_UV = ih2./vecnorm(ih2);
-vec1i_p = [point1; point1+ih2];
-plot3(vec1i_p(:,1),vec1i_p(:,2),vec1i_p(:,3),'m', 'LineWidth',0.5)
+vec1i2_p = [point1; point1+ih2];
+plot3(vec1i2_p(:,1),vec1i2_p(:,2),vec1i2_p(:,3),'m', 'LineWidth',0.5)
+
+ih = cross(vec12_UV, vec13_UV);
+ih_UV = ih./vecnorm(ih);
+vec1i_p = [point1; point1+ih];
+plot3(vec1i_p(:,1),vec1i_p(:,2),vec1i_p(:,3),'c', 'LineWidth',0.5)
+
 
 % Creating vector between points 2 and 4
 vec24 = point4 - point2;
@@ -70,10 +76,15 @@ pause(5)
 % Computing the required angle of rotation 
 % theta = dot(ih2, vec12_UV);
 % theta = radtodeg(theta);
-% angle = atan2(norm(cross(vec14_UV,vec23_UV)), dot(vec14_UV,vec23_UV))
 
-angle = atan2(norm(cross(ih2,vec12_UV)), dot(ih2,vec12_UV))
-angle_deg = radtodeg(angle)
+% angle between 
+angle3 = atan2(norm(cross(vec14_UV,vec23_UV)), dot(vec14_UV,vec23_UV));
+
+angle = atan2(norm(cross(ih2_UV,vec12_UV)), dot(ih2_UV,vec12_UV));
+
+angle2 = atan2(norm(cross(ih2_UV,ih_UV)), dot(ih2_UV,ih_UV));
+
+angle_deg = rad2deg(angle)
 theta =  -1 * angle;
 
 R_X = [1 0 0; 0 cos(theta) -sin(theta); 0 sin(theta) cos(theta)];
@@ -83,7 +94,7 @@ R_Z = [cosd(theta) -sind(theta) 0; sind(theta) cosd(theta) 0; 0 0 1];
 point4_n = R_X * vec14';
 point4_new = point4+point4_n;
 
-plot3(point4_new(1),point4_new(2),point4_new(3),'ob');
+plot3(point4_new(1),point4_new(2),point4_new(3),'ok');
 
 
 
