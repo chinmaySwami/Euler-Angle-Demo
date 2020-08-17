@@ -84,6 +84,7 @@ angle = atan2(norm(cross(ih2_UV,vec12_UV)), dot(ih2_UV,vec12_UV));
 
 angle2 = atan2(norm(cross(ih2_UV,ih_UV)), dot(ih2_UV,ih_UV));
 
+% Plotting point after rotating it by angle
 angle_deg = rad2deg(angle)
 theta =  -1 * angle;
 
@@ -93,8 +94,25 @@ R_Z = [cosd(theta) -sind(theta) 0; sind(theta) cosd(theta) 0; 0 0 1];
 
 point4_n = R_X * vec14';
 point4_new = point4+point4_n;
-
 plot3(point4_new(1),point4_new(2),point4_new(3),'ok');
+
+
+% Plotting point after rotating it by angle3
+
+angle3_deg = rad2deg(angle3);
+theta =  -1 * angle3;
+R_X = [1 0 0; 0 cos(theta) -sin(theta); 0 sin(theta) cos(theta)];
+point43_n = R_X * vec14';
+point43_new = point4+point43_n;
+plot3(point43_new(1),point43_new(2),point43_new(3),'og');
+
+% Plotting point after rotating it by angle2
+angle2_deg = rad2deg(angle2);
+theta =  -1 * angle2;
+R_X = [1 0 0; 0 cos(theta) -sin(theta); 0 sin(theta) cos(theta)];
+point42_n = R_X * vec14';
+point42_new = point4+point42_n;
+plot3(point42_new(1),point42_new(2),point42_new(3),'og');
 
 
 
