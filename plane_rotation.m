@@ -2,8 +2,9 @@ clear all;
 
 % Creating four points
 point1 = [1 1 1];
-point2 = [2 1 1.5];
+point2 = [2 1 1];
 point3 = [2 2 1];
+% point4 = [1 2 1];
 point4 = [1 2 3];
 
 % Plotting 4 points
@@ -89,35 +90,47 @@ if run_transform
 
     % Plotting point after rotating it by angle 
     angle_deg = rad2deg(angle)
-    theta =  1 * angle;
+    theta =  -1 * angle;
 
     R_X = [1 0 0; 0 cos(theta) -sin(theta); 0 sin(theta) cos(theta)];
     R_Y = [cos(theta) 0 sin(theta) ; 0 1 0; -sin(theta) 0 cos(theta)];
     R_Z = [cos(theta) -sin(theta) 0; sin(theta) cos(theta) 0; 0 0 1];
-
+    %Post Mul
+%     R_XY = [cos(theta) 0 sin(theta); sin(theta)^2 cos(theta) -sin(theta)*cos(theta); cos(theta)*sin(theta) sin(theta) cos(theta)^2];
+    %Pre Mul
+    R_XY = [cos(theta) sin(theta)^2 cos(theta)*sin(theta);  0 cos(theta) -sin(theta);  -sin(theta) cos(theta)*sin(theta) cos(theta)^2];
+    
     point4_n = R_Y * point4';
     % point4_new = point4+point4_n';
     plot3(point4_n(1),point4_n(2),point4_n(3),'ok');
 
     % Plotting point after rotating it by angle3
     angle3_deg = rad2deg(angle3);
-    theta =  1 * angle3;
+    theta =  -1 * angle3;
 
     R_X = [1 0 0; 0 cos(theta) -sin(theta); 0 sin(theta) cos(theta)];
     R_Y = [cos(theta) 0 sin(theta) ; 0 1 0; -sin(theta) 0 cos(theta)];
     R_Z = [cos(theta) -sin(theta) 0; sin(theta) cos(theta) 0; 0 0 1];
-
+    %Post Mul
+%     R_XY = [cos(theta) 0 sin(theta); sin(theta)^2 cos(theta) -sin(theta)*cos(theta); cos(theta)*sin(theta) sin(theta) cos(theta)^2];
+    %Pre Mul
+    R_XY = [cos(theta) sin(theta)^2 cos(theta)*sin(theta);  0 cos(theta) -sin(theta);  -sin(theta) cos(theta)*sin(theta) cos(theta)^2];
+     
     point43_n = R_Y * point4';
     % point43_new = point4+point43_n';
     plot3(point43_n(1),point43_n(2),point43_n(3),'og');
 
     % Plotting point after rotating it by angle2
     angle2_deg = rad2deg(angle2);
-    theta =  1 * angle2;
+    theta =  -1 * angle2;
 
     R_X = [1 0 0; 0 cos(theta) -sin(theta); 0 sin(theta) cos(theta)];
     R_Y = [cos(theta) 0 sin(theta) ; 0 1 0; -sin(theta) 0 cos(theta)];
     R_Z = [cos(theta) -sin(theta) 0; sin(theta) cos(theta) 0; 0 0 1];
+    %Post Mul
+%     R_XY = [cos(theta) 0 sin(theta); sin(theta)^2 cos(theta) -sin(theta)*cos(theta); cos(theta)*sin(theta) sin(theta) cos(theta)^2];
+    %Pre Mul
+    R_XY = [cos(theta) sin(theta)^2 cos(theta)*sin(theta);  0 cos(theta) -sin(theta);  -sin(theta) cos(theta)*sin(theta) cos(theta)^2];
 
     point42_n = R_Y * point4';
     % point42_new = point4+point42_n';
