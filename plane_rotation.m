@@ -1,11 +1,18 @@
 clear all;
 
-% Creating four points
-point1 = [1 1 1];
-point2 = [2 1 2];
-point3 = [2 2 2];
+% Creating four points emulating marker oriented above the plane
+% point1 = [1 1 1];
+% point2 = [2 1 1];
+% point3 = [2 2 1];
+% % point4 = [1 2 1];
+% point4 = [1 2 5];
+
+% Creating four points emulating marker oriented below the plane
+point1 = [1 1 3];
+point2 = [2 1 3];
+point3 = [2 2 1];
 % point4 = [1 2 1];
-point4 = [1 2 5];
+point4 = [1 2 2];
 
 % Plotting 4 points
 figure;
