@@ -11,8 +11,7 @@ clear all;
 point1 = [1 1 3];
 point2 = [2 1 3];
 point3 = [2 2 1];
-% point4 = [1 2 1];
-point4 = [1 2 2];
+point4 = [1 2 2]; % doesnt work when Z co-ordinate > z co-ord of pt3
 
 % Plotting 4 points
 figure;
