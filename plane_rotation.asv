@@ -108,9 +108,7 @@ if run_transform
     % Cheating code
     plot3(point4(1),point4(2),point4_n(3),'ok');
     
-    % Custom Rotation marix
-    point4_n_custom = R_only_Y * point4';
-    plot3(point4_n_custom(1),point4_n_custom(2),point4_n_custom(3),'og');
+    % Rotatoin
     
     pt = [point4(1),point4(2),point4_n(3)]
     vec_np = pt - point1;
