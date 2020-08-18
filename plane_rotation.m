@@ -5,7 +5,7 @@ point1 = [1 1 1];
 point2 = [2 1 1];
 point3 = [2 2 1];
 % point4 = [1 2 1];
-point4 = [1 2 2];
+point4 = [1 3 5];
 
 % Plotting 4 points
 figure;
@@ -90,7 +90,7 @@ if run_transform
 
     % Plotting point after rotating it by angle 
     angle_deg = rad2deg(angle)
-    theta =  1 * angle;
+    theta =  -1 * angle;
 
     R_X = [1 0 0; 0 cos(theta) -sin(theta); 0 sin(theta) cos(theta)];
     R_Y = [cos(theta) 0 sin(theta) ; 0 1 0; -sin(theta) 0 cos(theta)];
@@ -102,14 +102,14 @@ if run_transform
     
     point4_n = R_Y * point4';
     % point4_new = point4+point4_n';
-%     plot3(point4_n(1),point4_n(2),point4_n(3),'ok');
+    plot3(point4_n(1),point4_n(2),point4_n(3),'ok');
     
     % Cheating code
     plot3(point4(1),point4(2),point4_n(3),'ok');
 
     % Plotting point after rotating it by angle3
     angle3_deg = rad2deg(angle3)
-    theta =  1 * angle3;
+    theta =  -1 * angle3;
 
     R_X = [1 0 0; 0 cos(theta) -sin(theta); 0 sin(theta) cos(theta)];
     R_Y = [cos(theta) 0 sin(theta) ; 0 1 0; -sin(theta) 0 cos(theta)];
@@ -121,14 +121,14 @@ if run_transform
      
     point43_n = R_Y * point4';
     % point43_new = point4+point43_n';
-%     plot3(point43_n(1),point43_n(2),point43_n(3),'og');
+    plot3(point43_n(1),point43_n(2),point43_n(3),'og');
     
     % Cheating code
     plot3(point4(1),point4(2),point43_n(3),'ob');
 
     % Plotting point after rotating it by angle2
     angle2_deg = rad2deg(angle2)
-    theta =  1 * angle2;
+    theta =  -1 * angle2;
 
     R_X = [1 0 0; 0 cos(theta) -sin(theta); 0 sin(theta) cos(theta)];
     R_Y = [cos(theta) 0 sin(theta) ; 0 1 0; -sin(theta) 0 cos(theta)];
@@ -140,7 +140,7 @@ if run_transform
 
     point42_n = R_Y * point4';
     % point42_new = point4+point42_n';
-%     plot3(point42_n(1),point42_n(2),point42_n(3),'oy');
+    plot3(point42_n(1),point42_n(2),point42_n(3),'oy');
     
      % Cheating code
     plot3(point4(1),point4(2),point42_n(3),'ob');
