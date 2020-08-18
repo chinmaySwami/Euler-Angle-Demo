@@ -22,7 +22,7 @@ xlim([-2 5])
 ylim([-2 5])
 zlim([-2 5])
 
-run_transform = true
+run_transform = true;
 
 if run_transform
     % orienting the point 4 in same plane as other 3 points
@@ -56,17 +56,17 @@ if run_transform
     plot3(vec14_p(:,1),vec14_p(:,2),vec14_p(:,3),'m', 'LineWidth',0.5);
 
 
-    % computing new axis
+    % computing new axis perpendicular to the elevated plane
     ih2 = cross(vec12_UV, vec14_UV);
     ih2_UV = ih2./vecnorm(ih2);
     vec1i2_p = [point1; point1+ih2];
     plot3(vec1i2_p(:,1),vec1i2_p(:,2),vec1i2_p(:,3),'m', 'LineWidth',0.5)
-
+    
+     % computing new axis perpendicular to the desired plane
     ih = cross(vec12_UV, vec13_UV);
     ih_UV = ih./vecnorm(ih);
     vec1i_p = [point1; point1+ih];
     plot3(vec1i_p(:,1),vec1i_p(:,2),vec1i_p(:,3),'c', 'LineWidth',0.5)
-
 
     % Creating vector between points 2 and 4
     vec24 = point4 - point2;
@@ -99,6 +99,8 @@ if run_transform
 %     R_XY = [cos(theta) 0 sin(theta); sin(theta)^2 cos(theta) -sin(theta)*cos(theta); cos(theta)*sin(theta) sin(theta) cos(theta)^2];
     %Pre Mul
     R_XY = [cos(theta) sin(theta)^2 cos(theta)*sin(theta);  0 cos(theta) -sin(theta);  -sin(theta) cos(theta)*sin(theta) cos(theta)^2];
+    
+    % Custom rotation matrix allowing rotation only around Y co-ordinate 
     R_only_Y = [1 0 0 ; 0 1 0; -sin(theta) 0 cos(theta)];
     
     point4_n = R_Y * point4';
@@ -110,7 +112,7 @@ if run_transform
     
     % Custom Rotation marix
     point4_n_custom = R_only_Y * point4';
-    plot3(point4_n_custom(1),point4_n_custom(2),point4_n_custom(3),'og');
+    plot3(point4_n_custom(1),point4_n_custom(2),point4_n_custom(3),'ok');
     
     pt = [point4(1),point4(2),point4_n(3)]
     vec_np = pt - point1;
