@@ -4,14 +4,14 @@ clear all;
 % point1 = [1 1 1];
 % point2 = [2 1 1];
 % point3 = [2 2 1];
-% % point4 = [1 2 1];
-% point4 = [1 2 5];
+% point4 = [1 2 1];
+% point4 = [1 2 0];
 
 % Creating four points emulating marker oriented below the plane
-point1 = [1 1 3];
+point1 = [1 1 2];
 point2 = [2 1 3];
 point3 = [2 2 1];
-point4 = [1 2 2]; % doesnt work when Z co-ordinate > z co-ord of pt3
+point4 = [1 2 0]; 
 
 % Plotting 4 points
 figure;
@@ -28,6 +28,7 @@ xlim([-2 5])
 ylim([-2 5])
 zlim([-2 5])
 
+pause(8)
 run_transform = true;
 
 if run_transform
@@ -81,7 +82,7 @@ if run_transform
     plot3(vec24_p(:,1),vec24_p(:,2),vec24_p(:,3),'m', 'LineWidth',0.5);
 
     title('Rotating plane[magenta] to align with[cyan]')
-    pause(5)
+    pause(8)
 
     % Computing the required angle of rotation 
     % theta = dot(ih2, vec12_UV);
