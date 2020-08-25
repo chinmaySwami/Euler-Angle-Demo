@@ -6,7 +6,7 @@ lsho = [1 1 1];
 chst = [1.5 2 1];
 c7 = [1.5 0 1];
 
-rfin = [1 2 1; -1.5 2 1; 0 2.5 1.5; 1 2.5 0; 1 3 -1; 1 3.5 -2; 1 1 -1];
+rfin = [1 2 1; 1 2.5 0; 1 3 -1; 1 3.5 -2; 1 1 -1];
 
 % rfinA = [1 2 1];
 % rfinB = [1 2.5 0];
@@ -32,7 +32,6 @@ plot3(rfin(2,1),rfin(2,2),rfin(2,3),'oc');
 plot3(rfin(3,1),rfin(3,2),rfin(3,3),'oc');
 plot3(rfin(4,1),rfin(4,2),rfin(4,3),'oc');
 plot3(rfin(5,1),rfin(5,2),rfin(5,3),'oc');
-plot3(rfin(6,1),rfin(6,2),rfin(6,3),'oc');
 
 xlabel(' x ');
 ylabel(' Y ');
@@ -86,8 +85,8 @@ if run_transform
         vec_lsho_rfin_p = [lsho; lsho+vec_lsho_rfin(k,:)];
         plot3(vec_lsho_rfin_p(:,1),vec_lsho_rfin_p(:,2),vec_lsho_rfin_p(:,3),'g', 'LineWidth',0.5);
         angle(k) = atan2(norm(cross(ih,vec_lsho_rfin_UV(k,:))), dot(ih,vec_lsho_rfin_UV(k,:)));
-        angle_rsho = rad2deg(angle);
+        angle_rshoA = rad2deg(angle);
+        an
     end
-    angle_rsho
     
    end
