@@ -79,7 +79,7 @@ plot3(proximal_x_v_p(:,1),proximal_x_v_p(:,2),proximal_x_v_p(:,3),'r', 'LineWidt
 
 
 % Creating rotation matrices
-rot_dist = 
-rot_prox = 
+rot_dist = [distal_x_uv' distal_y_uv' distal_z_uv'];
+rot_prox = [proximal_x_uv' proximal_y_uv' proximal_z_uv'];
 
 
