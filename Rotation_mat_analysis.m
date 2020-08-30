@@ -7,8 +7,8 @@ point3 = [2 2 1];
 point4 = [1 2 1];
 
 % Creating  points emulating marker from proximal segments
-point1p = [2 3 2];
-point2p = [1 3 2]; 
+point1p = [2 2 2];
+point2p = [1 2 2]; 
 
 % Plotting 4 points
 figure;
@@ -49,9 +49,9 @@ distal_z_v = cross(distal_x_uv, distal_y_uv);
 distal_z_v_p = [distal_origin; distal_origin+distal_z_v];
 distal_z_uv = distal_z_v./vecnorm(distal_z_v);
 
-plot3(distal_y_v_p(:,1),distal_y_v_p(:,2),distal_y_v_p(:,3),'g', 'LineWidth',0.5);
-plot3(distal_z_v_p(:,1),distal_z_v_p(:,2),distal_z_v_p(:,3),'b', 'LineWidth',0.5);
-plot3(distal_x_v_p(:,1),distal_x_v_p(:,2),distal_x_v_p(:,3),'r', 'LineWidth',0.5);
+plot3(distal_y_v_p(:,1),distal_y_v_p(:,2),distal_y_v_p(:,3),'g', 'LineWidth',1);
+plot3(distal_z_v_p(:,1),distal_z_v_p(:,2),distal_z_v_p(:,3),'b', 'LineWidth',1);
+plot3(distal_x_v_p(:,1),distal_x_v_p(:,2),distal_x_v_p(:,3),'r', 'LineWidth',1);
 
 % Creating proximal segment axis
 proximal_origin  = (point3 + point4)/2;
@@ -73,9 +73,9 @@ proximal_z_v = cross(proximal_x_uv, proximal_y_uv);
 proximal_z_v_p = [proximal_origin; proximal_origin+proximal_z_v];
 proximal_z_uv = proximal_z_v./vecnorm(proximal_z_v);
 
-plot3(proximal_y_v_p(:,1),proximal_y_v_p(:,2),proximal_y_v_p(:,3),'g', 'LineWidth',0.5);
-plot3(proximal_z_v_p(:,1),proximal_z_v_p(:,2),proximal_z_v_p(:,3),'b', 'LineWidth',0.5);
-plot3(proximal_x_v_p(:,1),proximal_x_v_p(:,2),proximal_x_v_p(:,3),'r', 'LineWidth',0.5);
+plot3(proximal_y_v_p(:,1),proximal_y_v_p(:,2),proximal_y_v_p(:,3),'g', 'LineWidth',1);
+plot3(proximal_z_v_p(:,1),proximal_z_v_p(:,2),proximal_z_v_p(:,3),'b', 'LineWidth',1);
+plot3(proximal_x_v_p(:,1),proximal_x_v_p(:,2),proximal_x_v_p(:,3),'r', 'LineWidth',1);
 
 % Creating rotation matrices
 rot_dist = [distal_x_uv' distal_y_uv' distal_z_uv'];
@@ -94,6 +94,16 @@ rot_x_p = [distal_origin; distal_origin+rot_x_uv];
 rot_y_p = [distal_origin; distal_origin+rot_y_uv];
 rot_z_p = [distal_origin; distal_origin+rot_z_uv];
 
-plot3(rot_x_p(:,1),rot_x_p(:,2),rot_x_p(:,3),'-y', 'LineWidth',0.5);
-plot3(rot_y_p(:,1),rot_y_p(:,2),rot_y_p(:,3),'-c', 'LineWidth',0.5);
-plot3(rot_z_p(:,1),rot_z_p(:,2),rot_z_p(:,3),'-m', 'LineWidth',0.5);
+plot3(rot_x_p(:,1),rot_x_p(:,2),rot_x_p(:,3),'--r', 'LineWidth',0.5);
+plot3(rot_y_p(:,1),rot_y_p(:,2),rot_y_p(:,3),'--g', 'LineWidth',0.5);
+plot3(rot_z_p(:,1),rot_z_p(:,2),rot_z_p(:,3),'--b', 'LineWidth',0.5);
+
+% computing the rotation angles using ZXY euler sequence
+beta = atan2(sqrt((rot_prox_dist(1,2)^2)+(rot_prox_dist(2,2)^2)), rot_prox_dist(3,2));
+alpha = atan2(-rot_prox_dist(1, 2),rot_prox_dist(2,2));
+gamma = atan2(-rot_prox_dist(3,1),rot_prox_dist(3,3));
+
+beta_deg = rad2deg(beta)
+alpha_deg = rad2deg(alpha)
+gamma_deg = rad2deg(gamma)
+
