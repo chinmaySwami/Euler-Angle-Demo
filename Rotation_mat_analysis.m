@@ -39,15 +39,15 @@ distal_y_uv = distal_y_v./vecnorm(distal_y_v);
 
 distal_z_v = point2d - distal_origin;
 distal_z_v_p = [distal_origin; distal_origin+distal_z_v];
-distal_z_uv = distal_y_v./vecnorm(distal_y_v);
+distal_z_uv = distal_z_v./vecnorm(distal_z_v);
 
 distal_x_v = cross(distal_z_v, distal_y_v);
 distal_x_v_p = [distal_origin; distal_origin+distal_x_v];
 distal_x_uv = distal_x_v./vecnorm(distal_x_v);
 
-distal_z_v = cross(distal_x_v, distal_y_v);
+distal_z_v = cross(distal_x_uv, distal_y_uv);
 distal_z_v_p = [distal_origin; distal_origin+distal_z_v];
-distal_z_uv = distal_y_v./vecnorm(distal_y_v);
+distal_z_uv = distal_z_v./vecnorm(distal_z_v);
 
 plot3(distal_y_v_p(:,1),distal_y_v_p(:,2),distal_y_v_p(:,3),'g', 'LineWidth',0.5);
 plot3(distal_z_v_p(:,1),distal_z_v_p(:,2),distal_z_v_p(:,3),'b', 'LineWidth',0.5);
@@ -57,5 +57,29 @@ plot3(distal_x_v_p(:,1),distal_x_v_p(:,2),distal_x_v_p(:,3),'r', 'LineWidth',0.5
 proximal_origin  = (point3 + point4)/2;
 proximal_end  = (point1p + point2p)/2;
 
+proximal_y_v = proximal_end - proximal_origin;
+proximal_y_v_p = [proximal_origin; proximal_origin+proximal_y_v];
+proximal_y_uv = proximal_y_v./vecnorm(proximal_y_v);
+
+proximal_z_v = point3 - proximal_origin;
+proximal_z_v_p = [proximal_origin; proximal_origin+proximal_z_v];
+proximal_z_uv = proximal_z_v./vecnorm(proximal_z_v);
+
+proximal_x_v = cross(proximal_z_v, proximal_y_v);
+proximal_x_v_p = [proximal_origin; proximal_origin+proximal_x_v];
+proximal_x_uv = proximal_x_v./vecnorm(proximal_x_v);
+
+proximal_z_v = cross(proximal_x_uv, proximal_y_uv);
+proximal_z_v_p = [proximal_origin; proximal_origin+proximal_z_v];
+proximal_z_uv = proximal_z_v./vecnorm(proximal_z_v);
+
+plot3(proximal_y_v_p(:,1),proximal_y_v_p(:,2),proximal_y_v_p(:,3),'g', 'LineWidth',0.5);
+plot3(proximal_z_v_p(:,1),proximal_z_v_p(:,2),proximal_z_v_p(:,3),'b', 'LineWidth',0.5);
+plot3(proximal_x_v_p(:,1),proximal_x_v_p(:,2),proximal_x_v_p(:,3),'r', 'LineWidth',0.5);
+
+
+% Creating rotation matrices
+rot_dist = 
+rot_prox = 
 
 
