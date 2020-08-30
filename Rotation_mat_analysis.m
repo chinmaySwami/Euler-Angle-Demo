@@ -77,7 +77,6 @@ plot3(proximal_y_v_p(:,1),proximal_y_v_p(:,2),proximal_y_v_p(:,3),'g', 'LineWidt
 plot3(proximal_z_v_p(:,1),proximal_z_v_p(:,2),proximal_z_v_p(:,3),'b', 'LineWidth',0.5);
 plot3(proximal_x_v_p(:,1),proximal_x_v_p(:,2),proximal_x_v_p(:,3),'r', 'LineWidth',0.5);
 
-
 % Creating rotation matrices
 rot_dist = [distal_x_uv' distal_y_uv' distal_z_uv'];
 rot_prox = [proximal_x_uv' proximal_y_uv' proximal_z_uv'];
@@ -90,7 +89,11 @@ rot_x_uv = rot_prox_dist(:,1)';
 rot_y_uv = rot_prox_dist(:,2)';
 rot_z_uv = rot_prox_dist(:,3)';
 
+% plotting the unit vectors
+rot_x_p = [distal_origin; distal_origin+rot_x_uv];
+rot_y_p = [distal_origin; distal_origin+rot_y_uv];
+rot_z_p = [distal_origin; distal_origin+rot_z_uv];
 
-
-
-
+plot3(rot_x_p(:,1),rot_x_p(:,2),rot_x_p(:,3),'-y', 'LineWidth',0.5);
+plot3(rot_y_p(:,1),rot_y_p(:,2),rot_y_p(:,3),'-c', 'LineWidth',0.5);
+plot3(rot_z_p(:,1),rot_z_p(:,2),rot_z_p(:,3),'-m', 'LineWidth',0.5);
