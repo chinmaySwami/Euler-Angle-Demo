@@ -82,4 +82,15 @@ plot3(proximal_x_v_p(:,1),proximal_x_v_p(:,2),proximal_x_v_p(:,3),'r', 'LineWidt
 rot_dist = [distal_x_uv' distal_y_uv' distal_z_uv'];
 rot_prox = [proximal_x_uv' proximal_y_uv' proximal_z_uv'];
 
+% Combining the proximal and distal rotation matrix
+rot_prox_dist = rot_prox' * rot_dist;
+
+% extracting the unit vectors from the new rotation matrix
+rot_x_uv = rot_prox_dist(:,1)';
+rot_y_uv = rot_prox_dist(:,2)';
+rot_z_uv = rot_prox_dist(:,3)';
+
+
+
+
 
