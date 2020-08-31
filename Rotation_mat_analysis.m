@@ -7,8 +7,8 @@ point3 = [2 2 1];
 point4 = [1 2 1];
 
 % Creating  points emulating marker from proximal segments
-point1p = [2 2 2];
-point2p = [1 2 2]; 
+point1p = [2 3 2];
+point2p = [1 3 2]; 
 
 % Plotting 4 points
 figure;
@@ -83,6 +83,7 @@ rot_prox = [proximal_x_uv' proximal_y_uv' proximal_z_uv'];
 
 % Combining the proximal and distal rotation matrix
 rot_prox_dist = rot_prox' * rot_dist;
+% rot_prox_dist = rot_dist' * rot_prox;
 
 % extracting the unit vectors from the new rotation matrix
 rot_x_uv = rot_prox_dist(:,1)';
@@ -94,6 +95,7 @@ rot_x_p = [distal_origin; distal_origin+rot_x_uv];
 rot_y_p = [distal_origin; distal_origin+rot_y_uv];
 rot_z_p = [distal_origin; distal_origin+rot_z_uv];
 
+pause(10)
 plot3(rot_x_p(:,1),rot_x_p(:,2),rot_x_p(:,3),'--r', 'LineWidth',0.5);
 plot3(rot_y_p(:,1),rot_y_p(:,2),rot_y_p(:,3),'--g', 'LineWidth',0.5);
 plot3(rot_z_p(:,1),rot_z_p(:,2),rot_z_p(:,3),'--b', 'LineWidth',0.5);
